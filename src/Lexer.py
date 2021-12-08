@@ -6,6 +6,9 @@ TT_MUL = "MUL"
 TT_DIV = "DIV"
 TT_LPAREN = "LPAREN"
 TT_RPAREN = "RPAREN"
+TT_LCURLY = "LCURLY"
+TT_RCURLY = "RCURLY"
+TT_END_STATEMENT = "END_STATEMENT"
 
 DIGITS = "0123456789"
 
@@ -98,6 +101,12 @@ class Lexer:
 				self.advance()
 			elif self.current_char == ')':
 				tokens.append(Token(TT_RPAREN, self.current_char))
+				self.advance()
+			elif self.current_char == '{':
+				tokens.append(Token(TT_LCURLY, self.current_char))
+				self.advance()
+			elif self.current_char == '}':
+				tokens.append(Token(TT_RCURLY, self.current_char))
 				self.advance()
 			else:
 				self.advance()

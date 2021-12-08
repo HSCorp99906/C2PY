@@ -27,6 +27,6 @@ for i in sys.argv:
 		print(f"The path \"{i}\" does not exist.")
 		exit(1)
 
-	if i != "main.py":
+	if sys.argv[0] != i:
 		contents = getcontents(i)
 		print(tokenize(contents))
